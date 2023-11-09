@@ -36,8 +36,11 @@ def main():
             st.info("Please add your OpenAI API key to continue.")
             st.stop()
         files_text = get_files_text(uploaded_files)
+        print("1")
         text_chunks = get_text_chunks(files_text)
+        print("2")
         vetorestore = get_vectorstore(text_chunks)
+        print("3")
      
         st.session_state.conversation = get_conversation_chain(vetorestore,openai_api_key) 
 
